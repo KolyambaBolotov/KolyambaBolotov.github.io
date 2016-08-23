@@ -1,212 +1,272 @@
-
-{ /* reset - сброс */
- margin: 0; /* удаляем отступы внешние*/
- padding: 0; /* удаляем отступы внутренние*/
- border:0 none; /* удаляем рамки*/
- }
-
-
-body { 
- font: 12px/18px Arial, Tahoma, Verdana, sans-serif; /* стиль шрифта-универсальный: размер/межстрочное расстояние и
- Стиль семейства по приоритетности - обязательные свойства*/
- width: 100%; /* ширина тела - на всю ширину*/
- height: 100%;/* высота тела - на всю высоту*/
- background:#fff; /*фон белый - можно и не писать, но лучше перестраховаться*/
- }
-
-p { /*стиль абзаца*/
-color:#b8b8b8; /* цвет текста в абзацах*/
-margin: 0 0 10px 0; /*внешний отступ: сверху справа снизу слева (по часовой стелке,обычно задается только снизу)*/
-line-height: 2em; /* межстрочный интервал */
-font-size: 15px ;/* размер шрифта  */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
 }
-a { /* ссылки */
-color:#8c6641;
-font-weight: bold; /* жирность букв: полужирный */
-text-decoration: none; /* подчеркивание: нет */
-outline: none; /*точечная рамка вокруг ссылок при нажатии: нет*/
+body {
+	background: #fff url(img/main_bgn.jpg) no-repeat top center;
+	font-family: "Open Sans";
 }
-a:hover {/* ссылки при наведении курсором */
-color: black;
+@font-face {
+	font-family: "Montserat";
+	src:url(fonts/Montserat.otf);
+	font-family:"Montserat-Bold";
+	src:url(fonts/Montserat-Bold.otf);
 }
-#wrap { /* оболочка сайта, куда мы все помещаем */
-margin: 20px auto; /* внешний отступ: сверху/снизу справа/слева; auto устанавливает блок по центру*/
-background: url("../images/bg.jpg") repeat-x #fff; /*Фон: ссылка на картинку повторение по
-горизонтали цвет белый(т.к. картинка у нас не везде, где ее нет - белый цвет)*/
-width: 947px; /* ширина оболочки (сайта)*/
-position: relative;/* позиция: относительно исходного места */
-min-height: 100%; /*мнимальная высота: на высоту экрана (в ie 6 не работает)*/
-border: 8px solid #ccc; /*рамка: ширина в пикселях сплошная(solid) #цвет*/
-/* не проходят валидацию в ccs 2, закругления с помощью css 3. Тема для отдельного поста ;)*/
-border-radius: 7px; /* закругления - общее*/
--webkit-border-radius: 7px; /*для  Chrome и Safari */
--moz-border-radius: 7px;/*для  ff */
--khtml-border-radius:7px; /*для Konqueror*/
+a {
+	text-decoration: none;
+	color:#000;
 }
-/*********** шапка сайта *************/
-div#header { /* шапка сайта*/
-width:100%;
-height: 200px;
+.main_container{
+	width: 940px;
+	margin: 0 auto;
 }
-div#header a.logo { /* логотип можно записать просто как .logo*/
-background: url("../images/logo.png") no-repeat;
-height: 37px;
-float: left; /*обтекание: слева*/
-width:310px;
-margin: 30px;
+.tc {
+	color: #32424c;
 }
- 
-ul.menu { /* маркированный список - меню в шапке */
-list-style: none; /*стиль для списка: нет (убираем квадратики, круглики)*/
-padding: 20px 30px 0 0;/*внутренний отступ: сверху справа снизу слева*/
-float: right; /*обтекание: справа*/
-}
-ul.menu li { /*элемент маркированного списка*/
-float: left;
-width:auto;
-}
-ul.menu li a {/* ссылки маркированного списка */
-padding: 10px 20px;
-text-decoration: none;
-color:#b8b8b8;
-font-weight: normal;
-font-size: 14px;
-}
-ul.menu li a:hover { /*псевдокласс hover - при на ведении курсора на ссылку ненумерованного списка*/
-color:#8a6540;
-}
-.text {/* блок с текстом в шапке */
-float: left;
-width: auto;
-border-top:1px #eee solid;/* рамка сверху */
-border-bottom:1px #eee solid;/* рамка снизу */
-padding: 20px 0px;
-margin: 0px 30px;
-}
-div#middle {/* центарльный блок*/
+/*top block*/
+.top{
 width: 100%;
-padding: 0 0 85px;
-position: relative;
 }
-#middle:after {/*отступ для центрального блока - уберите его и помотрите результат, думаю станет ясно для чего он нужен*/
-content: '.';
-display: block;
-clear: both;
-visibility: hidden;
-height: 0;
+.logo {
+	background: #fa5c65;
+	width: 140px;
+	height: 74px;
+	float: left;
+	border-radius: 0 0 6px 6px;
+	text-align: center;
+	color: #fff;
 }
-div#content {/* центральный блок с текстом*/
-float: left;
-padding: 20px 0 10px 10px;
-width: 634px;/*зададим ширину чтоб не скакало ничего*/
+.logo{
+	clear: both;
+	content: "";
 }
-.block {/* блок с картинкой и текстом*/
-float:left; /*обтекание слева*/
-margin-left: 15px;
-width: 300px;/* ширина в 300px чтоб вместилось 2 блока*/
+.logo_text{
+	vertical-align: middle;
+	padding-top: 74px;
+	font: 24px/24px 'Times New Roman';
 }
-.block img {/* стиль для картинке в блоке */
-border: 1px solid #ccc;
-padding: 5px;
-margin-left: 5px;
+.logo_text{
+	content: '.';
+	color: #fff;
+	font-size:24px ;
+
 }
-.block h2 { /* свой стиль заголовка, перекрывает глобальные настройки*/
-color:#939393;
-font-size:16px;
-padding: 5px;
+.menu{
+	float: right;
+	font: 14px Montserat;
+	text-transform: uppercase;
+	margin: 19px 0;
+	color: #32424c;
 }
-button, .button { /* стиль для зеленых кнопок*/
-float:right;
-width:96px;
-height: 26px;
-padding-top: 6px; /* стиль для зеленых кнопок*/
-text-align: center; /* выравнивание текста: по центру*/
-color:#fff;
-margin-right: 10px;
-background:url("../images/button.png") no-repeat;
+.menu ul li{
+	display: inline-block;
+	margin: 0 18px;
 }
-/******* sidebar *******/
-div#sidebar {/* стиль для сайдбара */
-float: right;
-padding: 20px 10px 10px 0;
-width: 290px;
-color:#939393;
+.top:after{
+	content: "";
+	display: block;
+	clear: both;
 }
-.twitter {/* блок для твиттов */
-background:url("../images/twitter.png") no-repeat ;
-height:150px;
-width:257px;
+.social{
+	float: right;
 }
-.twitter p { /* текст твиттов*/
-width:225px; /*ширина фиксированная чтобы текст не выходил за рамки*/
-padding: 10px;
-font-size: 12px;
+.tweet, .fb{
+	background: url(img/social_sprite.png)no-repeat;
+	width: 19px;
+	height: 19px;
+	display: inline-block;
+	margin: 19px 10px;
 }
-.twitter span {
-padding: 5px;
-float: right;
-width:100%;
-text-align: right;
+.tweeet{
+	background-position: 0 0;
+}
+.fb{
+	background-position: -34px 0;
 }
 
-ul.navigation {/* меню сайдбара - маркивованный список*/
-list-style:none;
-padding:5px;
+/*header*/
+header{
+	margin: 305px 0 0 0;
+	height: 605px;
 }
-div#sidebar  h3 {/* стиль для заголовка h3*/
-color:#404040;
-font-weight: normal;
-padding: 10px 5px;
+.title{
+	text-transform: uppercase;
+	font-family: "Montserat-Bold";
+	font-weight: bold;
 }
-ul.navigation li {
-width:257px;    height:30px;
-margin-bottom: -1px;
-border-bottom:1px solid #ccc;
-border-top:1px solid #ccc;
+.slogan{
+	color: #314a5b;
+	width: 60%;
+	font-size: 48px;
+	}
+.slogan:after{
+	content:".";
+	color: #fa5c65;
 }
-ul.navigation li:hover {/* меняем цвет элемента маркированного списка при на ведении курсора*/
-background: #f9f9f9;
+.slogan-after {
+	display: block;
+	text-transform: none;
+	font-size:20px ;
+	color: #314a5b;
 }
-ul.navigation li a {
-text-decoration: none;
-padding: 0px 10px;
-color:#939393;
-font-size:12px;
-font-weight: normal;
+.r_more {
+	display: block;
+	margin-top: 48px;
+	background: #fa5c65;
+	font-size:15px; font-weight: bold;
+	width: 171px;
+	height: 64px;
+	border-style: none;
+	border-radius: 5px;
+	text-transform: uppercase;
+	color:#fff;
+	text-align: center;
+	padding-top: 23px;
 }
-ul.navigation li a:hover {/* меняем цвет фона ссылки маркированного списка при на ведении курсора*/
-background: #f9f9f9;
+/*Contenr*/
+.content{
+	background: #fff;
 }
-.contacts {/* блок контактов */
-padding: 5px;
+.advantages{
+	margin: 82px 0 0 0;
 }
-.contacts p {
-line-height:1.5em;
+.a_item {
+	width: 32%;
+	display: inline-block;
 }
-div#footer {/* подвал сайта */
-border-top: 1px solid #CCCCCC;
-position: absolute; /*позиция блока: абсолютная*/
-bottom: 0; /*прижимаем footer к нижней части браузера*/
-height: 85px;
-margin: 0 30px;
-width: 875px;
+.a_text{
+	color: #9aa0ab;
+	font-family: "Open Sans";
 }
-p.copyright {/* текст копирайта */
-float: left;
-width:50%;
-padding-top: 25px;
-font-size: 12px;
+.more {
+	margin-top: 30px;
+	display: block;
+	text-transform: uppercase;
+	color: #f0454c;
+	background: url("img/arrow.png") no-repeat 54px 7px;
 }
-.fb, .tw {/* блоки для иконок */
-float:right;
-width:200px;
-padding-top: 10px;
+
+.a_item_title{
+	margin: 82px 0 30px 0;
+	font-size: 26px;
+	color: #465065;
 }
-.fb img, .tw img {
-float:left;
-width:40px;
-padding-right: 5px;
+.dot{
+	color: #f0454c;
+	font-size: inherit;
 }
-.fb p, .tw p {
-padding-top: 10px;
+/*Portfolia*/
+.portfolio{
+	display: block;
+	height: 300px;
+	margin-top: 105px;
+	margin-bottom: 195px;
+}
+.p_image{
+	display: inline-block;
+	width: 45%;
+	margin-right: 60px;
+}.p_wrap{
+	display: inline-block;
+	width:45%;
+	clear: both;
+}
+.p_title{
+	font-size: 40px;
+}
+.p_text{
+	margin-bottom: 45px;
+	margin-top: 15px;
+}
+.t_title{
+	font-size: 32px;
+	color: #314a5b;
+	margin-bottom: 18px;
+}
+.t_slogan{
+	color:#b3b7c0;
+}
+.team_title_wrap{
+	margin-bottom: 45px;
+}
+.team_item{
+	display: inline-block;
+	width: 32%;
+	margin-bottom: 45px;
+}
+.team_item_title{
+	font-size: 22px;
+	text-transform: uppercase;	
+}
+.team_item_prof{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	color: #f0454c;
+	font-size: 14px;
+	margin: 0 0 8px 0;
+}
+.team_item_face{
+	float: left;
+	margin-right: 22px;
+}
+.team_item_about{
+	font-family: "Open Sans";
+	font-size: 14px;
+	color: #bcc0c7;
+}
+.team_item_desc{
+margin-top: 15px;
+}
+.toright {
+	float: right;
+	width:70px;
+}
+.team:after{
+	display: block;
+	content: "";
+	clear: both;
+}
+
+
+
+/*footer*/
+footer{
+	margin-top: 128px;
+	height: 92px;
+	border-top: 1px solid #e6eaed;
+}
+.f_social{
+	margin: 32px 0 0 0;
+	width: 50%;
+}
+.f_social_icon{
+	display: inline-block;
+	margin: 0 18px 0 0;
+}
+
+
+.f_social_icon a {
+	background: url("img/social_footer.png") no-repeat;
+	height: 18px;
+	width: 18px;
+	display: block;	
+}
+.f_tweet{
+	background-position: 0 0;
+}
+a.f_insta{
+	background-position: -42px 0;
+}
+a.f_fb{
+	background-position: -79px 0;
+}
+a.f_gplus{
+	background-position: -114px 0;
+}
+.copyraight{
+	float: right;
+	color: #b9c0c6;
+	margin-top: -24px;
 }
